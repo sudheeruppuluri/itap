@@ -20,6 +20,8 @@ import { LoginFormComponent } from './components/login-form';
 import { RegisterFormComponent } from './components/register-form';
 import { NavbarSkeletonComponent } from './components/navbar-skeleton';
 import { SettingsComponent } from './components/settings';
+import { VesselDetailsComponent } from './vessel-details/vessel-details.component';
+import { VesselParticularsComponent } from './vessel-particulars/vessel-particulars.component'
 
 @NgModule({
   imports: [
@@ -45,13 +47,17 @@ import { SettingsComponent } from './components/settings';
     LoginFormComponent,
     RegisterFormComponent,
     NavbarSkeletonComponent,
-    SettingsComponent
+    SettingsComponent,
+    VesselDetailsComponent,
+    VesselParticularsComponent
   ],
   exports: [
     LoginFormComponent,
     RegisterFormComponent,
-    SettingsComponent
+    SettingsComponent,
+    VesselDetailsComponent,
+    VesselParticularsComponent
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LayoutModule { }

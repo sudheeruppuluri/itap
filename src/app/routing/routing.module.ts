@@ -60,9 +60,13 @@ import { Page404Component } from '../pages/apps/sessions/page-404';
 import { Page500Component } from '../pages/apps/sessions/page-500';
 import { PageDatepickersComponent } from '../pages/ui/components/datepickers';
 import { PageAntTableComponent } from '../pages/ui/tables/ant-table';
+import { VesselDetailsComponent } from '../layout/vessel-details/vessel-details.component';
+import { VesselParticularsComponent } from '../layout/vessel-particulars/vessel-particulars.component';
 
 const VERTICAL_ROUTES: Routes = [
   { path: 'default-dashboard', component: PageDashboardComponent },
+  { path: 'vessel-visit', component: VesselDetailsComponent },
+  { path: 'vessel-particulars', component: VesselParticularsComponent },
   { path: 'doctors', component: PageDoctorsComponent },
   { path: 'doctor-profile', component: PageDoctorProfileComponent },
   { path: 'patients', component: PagePatientsComponent },
