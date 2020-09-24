@@ -42,7 +42,7 @@ export class VesselParticularsComponent extends BasePageComponent implements OnI
         "vesselName": 123,
         "vesselCode": 123,
         "type": 123,
-        "maTeus": 123,
+        "maxTeus": 123,
         "cargoType": 123,
         "status": 123
       }
@@ -52,7 +52,7 @@ export class VesselParticularsComponent extends BasePageComponent implements OnI
   ngOnInit() {
     super.ngOnInit();
     let request = {
-      "vesselVisitDto": [
+      "columns": [
       ],
       "start": 1,
       "length": 100,
