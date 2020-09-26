@@ -195,7 +195,7 @@ export class TCTableComponent implements OnInit, OnChanges {
 			filteredData = this.changeFilter(this.data, config, this.columnList);
 		}
 
-		let sortedData = this.changeSort(filteredData, this.config);
+		let sortedData = this.changeSort(filteredData && filteredData.length > 0 ? filteredData : this.data, this.config);
 
 		this.rows = this.pagination ? this.changePage(this.page, this.itemsPerPage, sortedData) : sortedData;
 		this.calcPagesCount(sortedData.length, this.itemsPerPage);
