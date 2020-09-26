@@ -1,3 +1,4 @@
+<div class="app-loader" *ngIf="spinner"><i class="icofont-spinner-alt-4 rotate"></i></div>
 <tc-card class="mb-0">
   <tc-table [rows]="tableData" [pagination]="true" [hovered]="true">
     <tc-table-col [columnTitle]="'VESSEL ID'" [columnName]="'vesselId'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>

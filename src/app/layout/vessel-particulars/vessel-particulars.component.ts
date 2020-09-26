@@ -17,6 +17,7 @@ import { TCTableComponent } from 'src/app/ui/components/table';
 export class VesselParticularsComponent extends BasePageComponent implements OnInit, OnDestroy {
   @ViewChild(TCTableComponent, { static: false }) table: TCTableComponent;
   tableData: VesseslParticular[] = [];
+  spinner = true;
 
   constructor(
     store: Store<IAppState>,
@@ -54,6 +55,7 @@ export class VesselParticularsComponent extends BasePageComponent implements OnI
         });
       }
       this.table.ngOnInit();
+      this.spinner = false;
     });
   }
 

@@ -17,6 +17,7 @@ export class VesselDetailsComponent extends BasePageComponent implements OnInit,
   @ViewChild(TCTableComponent , {static: false}) table: TCTableComponent;
   
   tableData: VesselVisit[] = [];
+  spinner = true;
 
   constructor(
     store: Store<IAppState>,
@@ -53,6 +54,7 @@ export class VesselDetailsComponent extends BasePageComponent implements OnInit,
           this.tableData.push(data);
         });
         this.table.ngOnInit();
+        this.spinner = false;
       }
     });
     // this.assignData();
