@@ -1,6 +1,6 @@
 
 export const SETTINGS = {
-  boxed: true,// boolean
+  boxed: false,// boolean
   layout: 'vertical',// horizontal | vertical
   sidebarBg: '#FBFBFB',// string
   sidebarColor: '#1F2022',// string

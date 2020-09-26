@@ -1,12 +1,155 @@
+<div class="app-loader" *ngIf="spinner"><i class="icofont-spinner-alt-4 rotate"></i></div>
 <tc-card class="mb-0" *ngIf="tableData">
   <tc-table [rows]="tableData" [pagination]="true" [hovered]="true">
-    <tc-table-col [columnTitle]="'SCN'" [columnName]="'scn'" [enableFiltering]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'VESSEL NAME'" [columnName]="'vesselName'" [enableFiltering]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'ATA'" [columnName]="'ata'" [enableFiltering]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'TYPE'" [columnName]="'type'" [enableFiltering]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'ETA'" [columnName]="'eta'" [enableFiltering]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'ETB'" [columnName]="'etb'" [enableFiltering]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'CARGO NAME'" [columnName]="'cargoName'" [enableFiltering]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'STATUS'" [columnName]="'status'" [enableFiltering]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'SCN'" [columnName]="'scn'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'VESSEL NAME'" [columnName]="'vesselName'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'ATA'" [columnName]="'ata'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'TYPE'" [columnName]="'type'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'ETA'" [columnName]="'eta'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'ETB'" [columnName]="'etb'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'CARGO NAME'" [columnName]="'cargoName'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'STATUS'" [columnName]="'status'" [enableSorting]="true" [enableFiltering]="true"></tc-table-col>
   </tc-table>
 </tc-card>
+<!-- <tc-card class="mb-0">
+  <tc-table [rows]="tableData" [isNZPagination]="false" [hovered]="true" [pagination]="true">
+    <tc-table-col [columnTitle]="'Photo'" [columnName]="'img'">
+      <ng-template #tableTDTemplate let-value>
+        <tc-avatar [src]="value"></tc-avatar>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'SCN'" [columnName]="'scn'" [enableSorting]="true" [enableFiltering]="true">
+      <ng-template #tableTDTemplate let-value>
+        <strong>{{ value }}</strong>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'VESSEL NAME'" [columnName]="'vesselName'" [enableSorting]="true">
+      <ng-template #tableTDTemplate let-value>
+        <span class="d-flex align-items-center nowrap" [tcColor]="'#336cfb'">
+          <tc-icon [iconClass]="'icofont-ui-email'" [tcFontSize]="16" [padding]="0" class="mr-1"></tc-icon> {{ value }}
+        </span>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'ATA'" [columnName]="'ata'" [enableSorting]="true">
+      <ng-template #tableTDTemplate let-value>
+        <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'TYPE'" [columnName]="'type'" [enableSorting]="true">
+      <ng-template #tableTDTemplate let-value>
+        <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'ETA'" [columnName]="'eta'">
+      <ng-template #tableTDTemplate let-value>
+        <span class="d-flex align-items-center nowrap" [tcColor]="'#336cfb'">
+          <tc-icon [iconClass]="'icofont-ui-cell-phone'" [tcFontSize]="16" [padding]="0" class="mr-1"></tc-icon>
+          {{ value }}
+        </span>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'ETB'" [columnName]="'etb'" [enableSorting]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'CARGO NAME'" [columnName]="'cargoName'" [enableSorting]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'STATUS'" [columnName]="'status'" [enableSorting]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'Actions'" [columnName]="'actions'">
+      <ng-template #tableTDTemplate let-row="row">
+        <div class="actions">
+          <button
+            tc-button
+            [afterIcon]="'icofont-ui-edit'"
+            [view]="'info'"
+            [square]="true"
+            [tcShape]="500"
+            [size]="'sm'"
+            (click)="edit(row)"
+          ></button>
+
+          <button
+            tc-button
+            [afterIcon]="'icofont-ui-delete'"
+            [view]="'error'"
+            [square]="true"
+            [tcShape]="500"
+            [size]="'sm'"
+            (click)="remove(row)"
+          ></button>
+        </div>
+      </ng-template>
+    </tc-table-col>
+  </tc-table>
+</tc-card> -->
+
+<!-- <div class="add-action-box">
+  <button
+    tc-button
+    [afterIcon]="'icofont-stethoscope-alt'"
+    [view]="'accent'"
+    [square]="true"
+    [tcShape]="500"
+    (click)="openModal(modalBody, 'Add appointment', modalFooter)"
+  ></button>
+</div> -->
+
+<!-- Modal window -->
+<!-- <ng-container>
+  <ng-template #modalBody>
+    <form [formGroup]="appointmentForm" novalidate>
+      <tc-form-group class="avatar-box d-flex">
+        <input type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput hidden>
+
+        <tc-avatar [src]="appointmentForm.value.img"></tc-avatar>
+        <button tc-button [type]="'button'" [afterIcon]="'icofont-ui-user'" [view]="'accent'" [outline]="true" (click)="fileInput.click()">
+          Select image
+        </button>
+      </tc-form-group>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'Name'" formControlName="name"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group>
+        <tc-autocomplete [placeholder]="'Doctor'" [data]="doctors" [key]="'name'" formControlName="doctor"></tc-autocomplete>
+      </tc-form-group>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'Email'" formControlName="email"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'Date'" formControlName="date"></tc-input>
+      </tc-form-group>
+
+      <div class="row">
+        <div class="col col-md-6">
+          <tc-form-group>
+            <tc-input [placeholder]="'Time from'" formControlName="from"></tc-input>
+          </tc-form-group>
+        </div>
+
+        <div class="col col-md-6">
+          <tc-form-group>
+            <tc-input [placeholder]="'Time to'" formControlName="to"></tc-input>
+          </tc-form-group>
+        </div>
+      </div>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'Number'" formControlName="number"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group class="mb-0">
+        <tc-input [placeholder]="'Injury'" formControlName="injury"></tc-input>
+      </tc-form-group>
+    </form>
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <div class="actions justify-content-between">
+      <button tc-button [type]="'button'" [view]="'error'" (click)="closeModal()">Cancel</button>
+      <button tc-button [view]="'info'" [disabled]="appointmentForm.invalid" (click)="addAppointment(appointmentForm)">
+        Add appointment
+      </button>
+    </div>
+  </ng-template>
+</ng-container> -->
+<!-- end Modal window -->

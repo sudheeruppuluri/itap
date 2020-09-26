@@ -43,6 +43,7 @@ import { TCModalComponent } from './components/modal';
 
 import { TCColorPickerComponent } from './components/color-picker/color-picker.component';
 import { TCPickerComponent } from './components/color-picker/picker/picker.component';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
 @NgModule({
   imports: [
@@ -50,6 +51,7 @@ import { TCPickerComponent } from './components/color-picker/picker/picker.compo
 		FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    NzPaginationModule, 
     DragulaModule.forRoot()
   ],
   declarations: [

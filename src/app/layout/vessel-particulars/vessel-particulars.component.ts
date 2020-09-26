@@ -1,12 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/interfaces/app-state';
 import { BasePageComponent } from 'src/app/pages/base-page';
 import { HttpService } from 'src/app/services/http/http.service';
 
-import { DataTableRequest }  from 'src/app/interfaces/table-request.model';
-import { VesselDetails, VesseslParticular }  from 'src/app/interfaces/vessel-details.model';
+import { DataTableRequest } from 'src/app/interfaces/table-request.model';
+import { VesselDetails, VesseslParticular } from 'src/app/interfaces/vessel-details.model';
+import { TCTableComponent } from 'src/app/ui/components/table';
 
 @Component({
   selector: 'vessel-particulars',
@@ -14,6 +15,7 @@ import { VesselDetails, VesseslParticular }  from 'src/app/interfaces/vessel-det
   styleUrls: ['./vessel-particulars.component.scss']
 })
 export class VesselParticularsComponent extends BasePageComponent implements OnInit, OnDestroy {
+  @ViewChild(TCTableComponent, { static: false }) table: TCTableComponent;
   tableData: VesseslParticular[] = [];
 
   constructor(
@@ -46,11 +48,12 @@ export class VesselParticularsComponent extends BasePageComponent implements OnI
     let request = new DataTableRequest();
     this.httpSv.getVesselDetails(request).subscribe((response: VesselDetails[]) => {
       if (response) {
-        response.forEach(v=>{
+        response.forEach(v => {
           let data = new VesseslParticular(v);
           this.tableData.push(data);
         });
       }
+      this.table.ngOnInit();
     });
   }
 
