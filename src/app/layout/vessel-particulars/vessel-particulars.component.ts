@@ -5,13 +5,16 @@ import { IAppState } from 'src/app/interfaces/app-state';
 import { BasePageComponent } from 'src/app/pages/base-page';
 import { HttpService } from 'src/app/services/http/http.service';
 
+import { DataTableRequest }  from 'src/app/interfaces/table-request.model';
+import { VesselDetails, VesseslParticular }  from 'src/app/interfaces/vessel-details.model';
+
 @Component({
   selector: 'vessel-particulars',
   templateUrl: './vessel-particulars.component.html',
   styleUrls: ['./vessel-particulars.component.scss']
 })
 export class VesselParticularsComponent extends BasePageComponent implements OnInit, OnDestroy {
-  tableData: any[];
+  tableData: VesseslParticular[] = [];
 
   constructor(
     store: Store<IAppState>,
@@ -36,29 +39,18 @@ export class VesselParticularsComponent extends BasePageComponent implements OnI
         // }
       ]
     };
-    this.tableData = [
-      {
-        "vesselId": 123,
-        "vesselName": 123,
-        "vesselCode": 123,
-        "type": 123,
-        "maxTeus": 123,
-        "cargoType": 123,
-        "status": 123
-      }
-    ];
   }
 
   ngOnInit() {
     super.ngOnInit();
-    let request = {
-      "columns": [
-      ],
-      "start": 1,
-      "length": 100,
-    }
-    this.httpSv.getVesselDetails(request).subscribe(response => {
-      console.log(response);
+    let request = new DataTableRequest();
+    this.httpSv.getVesselDetails(request).subscribe((response: VesselDetails[]) => {
+      if (response) {
+        response.forEach(v=>{
+          let data = new VesseslParticular(v);
+          this.tableData.push(data);
+        });
+      }
     });
   }
 

@@ -46,7 +46,7 @@ export class TCTableComponent implements OnInit, OnChanges {
 		this.headerBgColor = 'rgba(#000,0.15)';
 		this.columnList = [];
 		this._columns = [];
-    this.rows = [];
+		this.rows = [];
 		this.config = {
 			sorting: true,
 			filtering: {
@@ -58,25 +58,25 @@ export class TCTableComponent implements OnInit, OnChanges {
 		this.page = 1;
 	}
 
-  ngOnInit() {
-	  this.getColumns();
-    this.data = this.rows;
-    this.calcPagesCount(this.rows.length, this.itemsPerPage);
+	ngOnInit() {
+		this.getColumns();
+		this.data = this.rows;
+		this.calcPagesCount(100, this.itemsPerPage);
 
-    if (this.data.length > 0) {
-      setTimeout(() => {
-        this.onChangeTable(this.config, null);
-      });
-    }
-  }
+		if (this.data.length > 0) {
+			setTimeout(() => {
+				this.onChangeTable(this.config, null);
+			});
+		}
+	}
 
-  ngOnChanges() {
-	  this.ngOnInit();
-  }
+	ngOnChanges() {
+		this.ngOnInit();
+	}
 
-  calcPagesCount(length: number, perPage: number) {
-    this.pagesCount = Math.ceil(length / perPage);
-  }
+	calcPagesCount(length: number, perPage: number) {
+		this.pagesCount = Math.ceil(length / perPage);
+	}
 
 	addColumn(column: TCTableColComponent) {
 		this.columnList.push(column);
@@ -135,7 +135,7 @@ export class TCTableComponent implements OnInit, OnChanges {
 	changeFilter(data: any, config: any, columnList: TCTableColComponent[]): any {
 		let filteredData: Array<any> = data;
 
-    columnList.forEach((column: any) => {
+		columnList.forEach((column: any) => {
 			if (column.config.name) {
 				filteredData = filteredData.filter((item: any) => {
 					if (typeof item[column.config.name] === 'undefined' && item[column.config.name] !== undefined) {
@@ -148,26 +148,26 @@ export class TCTableComponent implements OnInit, OnChanges {
 		});
 
 		if (!config.filtering) return filteredData;
-		
+
 		let tempArray: Array<any> = [];
 
 		filteredData.forEach((item: any) => {
 			let flag = false;
 
-      columnList.forEach((column: any) => {
-        if (column.config.filtering && column.config.name) {
-          if (typeof item[column.config.name] !== 'undefined' && item[column.config.name] !== undefined) {
-            if (item[column.config.name].toString().toLowerCase().startsWith(config.filtering.filterString.toLowerCase())) {
-              flag = true;
-            }
-          }
-        }
-      });
+			columnList.forEach((column: any) => {
+				if (column.config.filtering && column.config.name) {
+					if (typeof item[column.config.name] !== 'undefined' && item[column.config.name] !== undefined) {
+						if (item[column.config.name].toString().toLowerCase().startsWith(config.filtering.filterString.toLowerCase())) {
+							flag = true;
+						}
+					}
+				}
+			});
 
-      if (flag) {
-        tempArray.push(item);
-      }
-    });
+			if (flag) {
+				tempArray.push(item);
+			}
+		});
 
 		filteredData = tempArray;
 
@@ -175,11 +175,11 @@ export class TCTableComponent implements OnInit, OnChanges {
 	}
 
 	onChangeTable(config: any, column: TCTableColComponent, search: boolean = false): any {
-	  if (search) {
-      this.page = 1
-    }
+		if (search) {
+			this.page = 1
+		}
 
-	  if (config.filtering) {
+		if (config.filtering) {
 			Object.assign(this.config.filtering, config.filtering);
 		}
 
@@ -195,9 +195,9 @@ export class TCTableComponent implements OnInit, OnChanges {
 			filteredData = this.changeFilter(this.data, config, this.columnList);
 		}
 
-    let sortedData = this.changeSort(filteredData, this.config);
+		let sortedData = this.changeSort(filteredData, this.config);
 
 		this.rows = this.pagination ? this.changePage(this.page, this.itemsPerPage, sortedData) : sortedData;
-    this.calcPagesCount(sortedData.length, this.itemsPerPage);
+		this.calcPagesCount(sortedData.length, this.itemsPerPage);
 	}
 }

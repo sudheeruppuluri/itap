@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/interfaces/app-state';
 import { BasePageComponent } from 'src/app/pages/base-page';
 import { HttpService } from 'src/app/services/http/http.service';
+import { DataTableRequest }  from 'src/app/interfaces/table-request.model';
+import { VesselDetails, VesselVisit }  from 'src/app/interfaces/vessel-details.model';
 
 @Component({
   selector: 'vessel-details',
@@ -11,7 +13,7 @@ import { HttpService } from 'src/app/services/http/http.service';
   styleUrls: ['./vessel-details.component.scss']
 })
 export class VesselDetailsComponent extends BasePageComponent implements OnInit, OnDestroy {
-  tableData: any[];
+  tableData: VesselVisit[] = [];
 
   constructor(
     store: Store<IAppState>,
@@ -36,31 +38,29 @@ export class VesselDetailsComponent extends BasePageComponent implements OnInit,
         // }
       ]
     };
-    this.tableData = [
-      {
-        "scn": 123,
-        "vesselName": 123,
-        "ata": 123,
-        "type": 123,
-        "eta": 123,
-        "etb": 123,
-        "cargoName": 123,
-        "status": 123
-      }
-    ];
   }
 
   ngOnInit() {
     super.ngOnInit();
-    let request = {
-      "vesselVisitDto": [
-      ],
-      "start": 1,
-      "length": 100,
-    }
-    this.httpSv.getVesselDetails(request).subscribe(response => {
-      console.log(response);
+    let request = new DataTableRequest();
+    this.httpSv.getVesselDetails(request).subscribe((response: VesselDetails[]) => {
+      if (response) {
+        response.forEach(v=>{
+          let data = new VesselVisit(v);
+          this.tableData.push(data);
+        });
+      }
     });
+    // let request2 = {
+    //   username: "pavan",
+    //   password: "pavan"
+    // }
+    // this.httpSv.validateLogin(request2).subscribe(response => {
+    //   console.log(response);
+    // });
+    // this.httpSv.getDashdboardDetails().subscribe(response => {
+    //   console.log(response);
+    // });
   }
 
   ngOnDestroy() {
