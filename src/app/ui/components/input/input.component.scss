@@ -61,7 +61,7 @@ input:-webkit-autofill {
 }
 
 :host {
-  border-radius: $_shape;
+  border-radius: 4px;
   color: map-get($_color, default);
   display: block;
   font-size: $_fs;

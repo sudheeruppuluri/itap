@@ -42,7 +42,8 @@
       align-items: center;
       display: flex;
       flex-grow: 1;
-      padding: $module-rem ($module-rem * 4);
+      // padding: $module-rem ($module-rem * 4);
+      padding: 40px 30px;
       width: 100%;
 
       ::ng-deep {
