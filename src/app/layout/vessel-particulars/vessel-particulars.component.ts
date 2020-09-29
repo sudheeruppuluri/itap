@@ -1,9 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/interfaces/app-state';
 import { BasePageComponent } from 'src/app/pages/base-page';
 import { HttpService } from 'src/app/services/http/http.service';
+
+import { DataTableRequest } from 'src/app/interfaces/table-request.model';
+import { VesselDetails, VesseslParticular } from 'src/app/interfaces/vessel-details.model';
+import { TCTableComponent } from 'src/app/ui/components/table';
 
 @Component({
   selector: 'vessel-particulars',
@@ -11,7 +15,9 @@ import { HttpService } from 'src/app/services/http/http.service';
   styleUrls: ['./vessel-particulars.component.scss']
 })
 export class VesselParticularsComponent extends BasePageComponent implements OnInit, OnDestroy {
-  tableData: any[];
+  @ViewChild(TCTableComponent, { static: false }) table: TCTableComponent;
+  tableData: VesseslParticular[] = [];
+  spinner = true;
 
   constructor(
     store: Store<IAppState>,
@@ -36,29 +42,20 @@ export class VesselParticularsComponent extends BasePageComponent implements OnI
         // }
       ]
     };
-    this.tableData = [
-      {
-        "vesselId": 123,
-        "vesselName": 123,
-        "vesselCode": 123,
-        "type": 123,
-        "maTeus": 123,
-        "cargoType": 123,
-        "status": 123
-      }
-    ];
   }
 
   ngOnInit() {
     super.ngOnInit();
-    let request = {
-      "vesselVisitDto": [
-      ],
-      "start": 1,
-      "length": 100,
-    }
-    this.httpSv.getVesselDetails(request).subscribe(response => {
-      console.log(response);
+    let request = new DataTableRequest();
+    this.httpSv.getVesselDetails(request).subscribe((response: VesselDetails[]) => {
+      if (response) {
+        response.forEach(v => {
+          let data = new VesseslParticular(v);
+          this.tableData.push(data);
+        });
+      }
+      this.table.ngOnInit();
+      this.spinner = false;
     });
   }
 

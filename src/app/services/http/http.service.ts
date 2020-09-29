@@ -22,6 +22,14 @@ export class HttpService {
     return this.http.post(this.url+'cockpit/vesselVisitDetailsAll',request);
   }
 
+  validateLogin(request: any): Observable<any> {
+    return this.http.post(this.url+'cockpit/loginAuthentication',request);
+  }
+
+  getDashdboardDetails(): Observable<any> {
+    return this.http.get(this.url + 'cockpit/dashBoardDetails');
+  }
+
   private handleError(error: any) {
     return observableThrowError(error.error || 'Server error');
   }
