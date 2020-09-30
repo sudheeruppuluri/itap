@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-import { ChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
@@ -73,6 +71,7 @@ import { Page500Component } from './apps/sessions/page-500';
 import { PageDatepickersComponent } from './ui/components/datepickers';
 import { PageAntTableComponent } from './ui/tables/ant-table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
 
 @NgModule({
   imports: [
@@ -80,8 +79,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-
     ChartsModule,
+    WavesModule,
     NgxChartsModule,
     NgxEchartsModule.forRoot({
       echarts: { init: echarts.init }
@@ -157,7 +156,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     PageDatepickersComponent,
     PageAntTableComponent
   ],
-  exports: [ ],
-  entryComponents: [ ]
+  exports: [],
+  entryComponents: []
 })
-export class PagesModule {}
+export class PagesModule { }

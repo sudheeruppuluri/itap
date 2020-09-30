@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-
+<div class="app-loader" *ngIf="spinner"><i class="icofont-spinner-alt-4 rotate"></i></div>
+<div *ngIf="data">
 <div class="row mb-3">
   <div class="col">
     <h3 class="">HOME</h3>
@@ -19,7 +20,7 @@
       <div class="col-lg-3">
         <tc-card [title]="''">
           <tc-alert [removable]="true" class="mb-4 bg-white">
-           Manifest
+            Manifest
           </tc-alert>
         </tc-card>
       </div>
@@ -38,7 +39,7 @@
         </tc-card>
       </div>
     </div>
-      
+
   </div>
   <div class="col-lg-6">
     <div class="row">
@@ -84,14 +85,19 @@
       <hr class="bg-white border-white">
       <div class="announcement-wrap-body">
         <div class="announcement-wrap-body-block">
-          <div><h5 class="mb-1">DELAY</h5></div>
+          <div>
+            <h5 class="mb-1">DELAY</h5>
+          </div>
           <div><strong>Vessel name:</strong> MV Tamar will be arriving late, New ETA will be</div>
           <div><strong>11/02/2020 11:55 am</strong></div>
         </div>
 
         <div class="announcement-wrap-body-block">
-          <div><h5 class="mb-1">SYSTEM MAINTENANCE ON 20/06/202011:00 to 12:00</h5></div>
-          <div>Due to scheduled system maintenance our site will be temporarily unavailable. We apologize in advance for any inconvenience this may cause</div>
+          <div>
+            <h5 class="mb-1">SYSTEM MAINTENANCE ON 20/06/202011:00 to 12:00</h5>
+          </div>
+          <div>Due to scheduled system maintenance our site will be temporarily unavailable. We apologize in advance for
+            any inconvenience this may cause</div>
         </div>
 
       </div>
@@ -106,17 +112,17 @@
       <hr class="bg-white border-blue-light">
       <div class="row">
         <div class="col-lg-4 text-center">
-        <div class="progress-pie-chart">
-          <div class="ppc-progress">
-            <div class="ppc-progress-fill"></div>
-          </div>
-          <div class="ppc-percents">
-            <div class="pcc-percents-wrapper">
-              <span class="days">60</span>
+          <div class="progress-pie-chart">
+            <div class="ppc-progress">
+              <div class="ppc-progress-fill"></div>
+            </div>
+            <div class="ppc-percents">
+              <div class="pcc-percents-wrapper">
+                <span class="days"> {{ data.noOfVessels }}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <p class="text-center">No of vessels in open status</p>
+          <p class="text-center">No of vessels in open status</p>
         </div>
 
         <div class="col-lg-4 text-center">
@@ -126,7 +132,7 @@
             </div>
             <div class="ppc-percents">
               <div class="pcc-percents-wrapper">
-                <span class="days">1,752</span>
+                <span class="days">{{ data.tonnageLoading }}</span>
               </div>
             </div>
           </div>
@@ -140,7 +146,7 @@
             </div>
             <div class="ppc-percents">
               <div class="pcc-percents-wrapper">
-                <span class="days">14,450</span>
+                <span class="days">{{ data.tonnageDischarging }}</span>
               </div>
             </div>
           </div>
@@ -154,65 +160,77 @@
 
 <div class="row overview-wrap">
   <div class="col-lg-4 bg-white">
-      <div class="tabs">
-        <ul id="tab-links">
-          <li><a href="#tab-1" class="active" title="Code">Registered Vessels</a></li>
-          <li><a href="#tab-2" title="Graphic Design &amp; Illustration">Pilot Booking</a></li>
-          <li><a href="#tab-3" title="Web Design">Vessel Berthing</a></li>
-          <li><a href="#tab-4" title="Business">Bill Posted</a></li>
-        </ul>
-        
-        <section id="tab-1" class="active">
-          <h3 class="text-center">05</h3>
-          <p>Total No of Vessels registered</p>
-        </section>
-        
-        <section id="tab-2">
-          <h3 class="text-center">05</h3>
-          <p>Total No of Vessels registered</p>
-        </section>
-        
-        <section id="tab-3">
-          <h3 class="text-center">05</h3>
-          <p>Total No of Vessels registered</p>
-        </section>
-        
-        <section id="tab-4">
-          <h3 class="text-center">05</h3>
-          <p>Total No of Vessels registered</p>
-        </section>
-      </div>
+    <div class="tabs">
+      <ul id="tab-links">
+        <li><a href="#tab-1" class="active" title="Code">Registered Vessels</a></li>
+        <li><a href="#tab-2" title="Graphic Design &amp; Illustration">Pilot Booking</a></li>
+        <li><a href="#tab-3" title="Web Design">Vessel Berthing</a></li>
+        <li><a href="#tab-4" title="Business">Bill Posted</a></li>
+      </ul>
+
+      <section id="tab-1" class="active">
+        <h3 class="text-center">{{ data.registeredVessels }}</h3>
+        <p>Total No of Vessels registered</p>
+      </section>
+
+      <section id="tab-2">
+        <h3 class="text-center">{{ data.plotBooking }}</h3>
+        <p>Total No of Vessels registered</p>
+      </section>
+
+      <section id="tab-3">
+        <h3 class="text-center">{{ data.vesselBerthing }}</h3>
+        <p>Total No of Vessels registered</p>
+      </section>
+
+      <section id="tab-4">
+        <h3 class="text-center">{{ data.billPosted }}</h3>
+        <p>Total No of Vessels registered</p>
+      </section>
+    </div>
   </div>
 
   <div class="col-lg-8">
-    <tc-card class="bg-white">
-      <div echarts [options]="hsOptions" class="chat-container container-h-400"></div>
+    <tc-card class="bg-white" [title]="'Tonnage Performance'" *ngIf="data">
+      <!-- <div echarts [options]="hsOptions" class="chat-container container-h-400"></div> -->
+      <!-- <div style="display: block">
+        <canvas mdbChart
+            [chartType]="chartType"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+        </canvas>
+      </div> -->
+      <div echarts [options]="lineOptions" class="chat-container container-h-400"></div>
     </tc-card>
   </div>
 </div>
-
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="script"></script>
 <script>
   // jQuery.
-$(function() {
-	// Reference the tab links.
-	const tabLinks = $('#tab-links li a');
-	
-	// Handle link clicks.
-	tabLinks.click(function(event) {
-		var $this = $(this);
-		
-		// Prevent default click behaviour.
-		event.preventDefault();
-		
-		// Remove the active class from the active link and section.
-		$('#tab-links a.active, section.active').removeClass('active');
-		
-		// Add the active class to the current link and corresponding section.
-		$this.addClass('active');
-		$($this.attr('href')).addClass('active');
-	});
-});
-</script>
+  $(function () {
+    // Reference the tab links.
+    const tabLinks = $('#tab-links li a');
 
+    // Handle link clicks.
+    tabLinks.click(function (event) {
+      var $this = $(this);
+
+      // Prevent default click behaviour.
+      event.preventDefault();
+
+      // Remove the active class from the active link and section.
+      $('#tab-links a.active, section.active').removeClass('active');
+
+      // Add the active class to the current link and corresponding section.
+      $this.addClass('active');
+      $($this.attr('href')).addClass('active');
+    });
+  });
+</script>
