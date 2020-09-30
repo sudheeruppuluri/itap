@@ -132,7 +132,7 @@ const PUBLIC_ROUTES: Routes = [
 export const ROUTES: Routes = [
   {
     path: '',
-    redirectTo: '/vertical/default-dashboard',
+    redirectTo: '/public/sign-in',
     pathMatch: 'full'
   },
   {
