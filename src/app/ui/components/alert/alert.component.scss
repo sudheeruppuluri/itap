@@ -49,7 +49,9 @@ $_types: (
     align-self: center;
     display: block;
     flex: 1;
-    padding: calc(#{$module-rem} * 2 - #{$_border-width}) $module-rem;
+    // padding: calc(#{$module-rem} * 2 - #{$_border-width}) $module-rem;
+    font-size: 10px;
+    padding: 20px 10px;
 
     .title {
       font-size: 1.25em;
@@ -63,7 +65,8 @@ $_types: (
     cursor: pointer;
     font-size: 1.25em;
     line-height: 1;
-    margin: $module-rem;
+    // margin: $module-rem;
+    margin: 5px;
     opacity: 0;
     transition: opacity .2s $_animation;
   }

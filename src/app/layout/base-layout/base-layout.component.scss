@@ -17,6 +17,7 @@
       position: relative;
       transition: .2s padding 0s $animation;
       -webkit-overflow-scrolling: touch;
+      background-color: #F1F8FF;
 
       .main-content-wrap {
         min-height: calc(100% - #{$module-rem * 4});

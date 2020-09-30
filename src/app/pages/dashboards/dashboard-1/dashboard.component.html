@@ -1,164 +1,183 @@
+<div class="row mb-3">
+  <div class="col">
+    <h3 class="">HOME</h3>
+  </div>
+</div>
+
 <div class="row">
-  <div class="col col-12 col-md-6 col-xl-3">
-    <tc-card [tcBgColor]="'#fbfbfb'" class="animated fadeInUp delay-01s">
-      <div class="row align-items-center">
-        <div class="col col-5">
-          <tc-icon
-            [tcColor]="'rgba(51,108,251,0.5)'"
-            [tcFontSize]="48"
-            [iconClass]="'icofont-first-aid-alt'"
-            [padding]="0"
-          ></tc-icon>
+  <div class="col-lg-6">
+    <div class="row">
+      <div class="col-lg-3">
+        <tc-card [title]="''">
+          <tc-alert [removable]="true" class="mb-4 bg-white">
+            Import ID
+          </tc-alert>
+        </tc-card>
+      </div>
+      <div class="col-lg-3">
+        <tc-card [title]="''">
+          <tc-alert [removable]="true" class="mb-4 bg-white">
+           Manifest
+          </tc-alert>
+        </tc-card>
+      </div>
+      <div class="col-lg-3">
+        <tc-card [title]="''">
+          <tc-alert [removable]="true" class="mb-4 bg-white">
+            Service Voucher
+          </tc-alert>
+        </tc-card>
+      </div>
+      <div class="col-lg-3">
+        <tc-card [title]="''">
+          <tc-alert [removable]="true" class="mb-4 bg-white">
+            Shift Outturn
+          </tc-alert>
+        </tc-card>
+      </div>
+    </div>
+      
+  </div>
+  <div class="col-lg-6">
+    <div class="row">
+      <div class="col-lg-3">
+        <tc-card [title]="''">
+          <tc-alert [removable]="true" class="mb-4 bg-white">
+            Operation Pirticular
+          </tc-alert>
+        </tc-card>
+      </div>
+      <div class="col-lg-3">
+        <tc-card [title]="''">
+          <tc-alert [removable]="true" class="mb-4 bg-white">
+            Vessel Movement
+          </tc-alert>
+        </tc-card>
+      </div>
+      <div class="col-lg-3">
+        <tc-card [title]="''">
+          <tc-alert [removable]="true" class="mb-4 bg-white">
+            Planner Handover
+          </tc-alert>
+        </tc-card>
+      </div>
+      <div class="col-lg-3">
+        <tc-card [title]="''">
+          <tc-alert [removable]="true" class="mb-4 bg-white">
+            Sailed vessel report
+          </tc-alert>
+        </tc-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row mb-4">
+  <div class="col-lg-4">
+    <div class="announcement-wrap">
+      <div class="announcement-wrap-head py-3">
+        <div><strong>Announcement</strong></div>
+      </div>
+      <hr class="bg-white border-white">
+      <div class="announcement-wrap-body">
+        <div class="announcement-wrap-body-block">
+          <div><h5 class="mb-1">DELAY</h5></div>
+          <div><strong>Vessel name:</strong> MV Tamar will be arriving late, New ETA will be</div>
+          <div><strong>11/02/2020 11:55 am</strong></div>
         </div>
 
-        <div class="col col-7">
-          <h6 class="mt-0 mb-1">Appointments</h6>
-          <div class="count" [tcFontSize]="20" [tcColor]="'#336cfb'">213</div>
+        <div class="announcement-wrap-body-block">
+          <div><h5 class="mb-1">SYSTEM MAINTENANCE ON 20/06/202011:00 to 12:00</h5></div>
+          <div>Due to scheduled system maintenance our site will be temporarily unavailable. We apologize in advance for any inconvenience this may cause</div>
         </div>
+
       </div>
-    </tc-card>
+    </div>
   </div>
 
-  <div class="col col-12 col-md-6 col-xl-3">
-    <tc-card [tcBgColor]="'#fbfbfb'" class="animated fadeInUp delay-02s">
-      <div class="row align-items-center">
-        <div class="col col-5">
-          <tc-icon
-            [tcColor]="'rgba(51,108,251,0.5)'"
-            [tcFontSize]="48"
-            [iconClass]="'icofont-wheelchair'"
-            [padding]="0"
-          ></tc-icon>
+  <div class="col-lg-8 bg-white align-self-center">
+    <div class="performance-wrap">
+      <div class="performance-wrap-head py-3">
+        <div><strong>Overall Performance</strong></div>
+      </div>
+      <hr class="bg-white border-blue-light">
+      <div class="row">
+        <div class="col-lg-4 text-center">
+        <div class="progress-pie-chart">
+          <div class="ppc-progress">
+            <div class="ppc-progress-fill"></div>
+          </div>
+          <div class="ppc-percents">
+            <div class="pcc-percents-wrapper">
+              <span class="days">60</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-center">No of vessels in open status</p>
         </div>
 
-        <div class="col col-7">
-          <h6 class="mt-0 mb-1 nowrap">New patients</h6>
-          <div class="count" [tcFontSize]="20" [tcColor]="'#336cfb'">104</div>
+        <div class="col-lg-4 text-center">
+          <div class="progress-pie-chart">
+            <div class="ppc-progress">
+              <div class="ppc-progress-fill"></div>
+            </div>
+            <div class="ppc-percents">
+              <div class="pcc-percents-wrapper">
+                <span class="days">1,752</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-center">Tonnage Loading</p>
+        </div>
+
+        <div class="col-lg-4 text-center">
+          <div class="progress-pie-chart">
+            <div class="ppc-progress">
+              <div class="ppc-progress-fill"></div>
+            </div>
+            <div class="ppc-percents">
+              <div class="pcc-percents-wrapper">
+                <span class="days">14,450</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-center">Tonnage Discharging</p>
         </div>
       </div>
-    </tc-card>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-4">
+    <div class="bg-white h-100">
+      <div class="row">
+        <div class="col-3">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="col col-12 col-md-6 col-xl-3">
-    <tc-card [tcBgColor]="'#fbfbfb'" class="animated fadeInUp delay-03s">
-      <div class="row align-items-center">
-        <div class="col col-5">
-          <tc-icon
-            [tcColor]="'rgba(51,108,251,0.5)'"
-            [tcFontSize]="48"
-            [iconClass]="'icofont-blood'"
-            [padding]="0"
-          ></tc-icon>
-        </div>
-
-        <div class="col col-7">
-          <h6 class="mt-0 mb-1">Operations</h6>
-          <div class="count" [tcFontSize]="20" [tcColor]="'#336cfb'">23</div>
-        </div>
-      </div>
-    </tc-card>
-  </div>
-
-  <div class="col col-12 col-md-6 col-xl-3">
-    <tc-card [tcBgColor]="'#fbfbfb'" class="animated fadeInUp delay-04s">
-      <div class="row align-items-center">
-        <div class="col col-5">
-          <tc-icon
-            [tcColor]="'rgba(51,108,251,0.5)'"
-            [tcFontSize]="48"
-            [iconClass]="'icofont-dollar-true'"
-            [padding]="0"
-          ></tc-icon>
-        </div>
-
-        <div class="col col-7">
-          <h6 class="mt-0 mb-1 nowrap">Hospital Earning</h6>
-          <div class="count" [tcFontSize]="20" [tcColor]="'#336cfb'">$5238</div>
-        </div>
-      </div>
+  <div class="col-lg-8">
+    <tc-card class="bg-white">
+      <div echarts [options]="hsOptions" class="chat-container container-h-400"></div>
     </tc-card>
   </div>
 </div>
 
-<tc-card [title]="'Hospital survey'">
-  <div echarts [options]="hsOptions" class="chat-container container-h-400"></div>
-</tc-card>
-
-<div class="row">
-  <div class="col col-12 col-md-6">
-    <tc-card>
-      <h4 class="mt-0 mb-1">$25038</h4>
-      <p class="mb-0" [tcColor]="'#9d9d9d'">Income in current month</p>
-
-      <div echarts [options]="piOptions" class="chat-container"></div>
-    </tc-card>
-  </div>
-
-  <div class="col col-12 col-md-6">
-    <tc-card>
-      <h4 class="mt-0 mb-1">$2195</h4>
-      <p class="mb-0" [tcColor]="'#9d9d9d'">Income in current week</p>
-
-      <div echarts [options]="heOptions" class="chat-container"></div>
-    </tc-card>
-  </div>
-
-  <div class="col col-12 col-md-4">
-    <tc-card [title]="'Patients age'">
-      <div echarts [options]="paOptions" class="chat-container container-h-300"></div>
-    </tc-card>
-  </div>
-
-  <div class="col col-12 col-md-4">
-    <tc-card [title]="'Patients gender'">
-      <div echarts [options]="pgOptions" class="chat-container container-h-300"></div>
-    </tc-card>
-  </div>
-
-  <div class="col col-12 col-md-4">
-    <tc-card [title]="'Departments'">
-      <div echarts [options]="dOptions" class="chat-container container-h-300"></div>
-    </tc-card>
-  </div>
-</div>
-
-<tc-card [title]="'Last appointments'" class="mb-0">
-  <tc-table [rows]="appointments" [hovered]="true" [pagination]="true">
-    <tc-table-col [columnTitle]="'Photo'" [columnName]="'img'">
-      <ng-template #tableTDTemplate let-value>
-        <tc-avatar [src]="value"></tc-avatar>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Name'" [columnName]="'name'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <strong>{{ value }}</strong>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Email'" [columnName]="'email'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <span class="nowrap" [tcColor]="'#336cfb'">
-          <tc-icon [iconClass]="'icofont-ui-email'" [tcFontSize]="16" [padding]="0" class="mr-1"></tc-icon> {{ value }}
-        </span>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Date'" [columnName]="'date'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Visit time'" [columnName]="'fromTo'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Number'" [columnName]="'number'">
-      <ng-template #tableTDTemplate let-value>
-        <span class="nowrap" [tcColor]="'#336cfb'">
-          <tc-icon [iconClass]="'icofont-ui-cell-phone'" [tcFontSize]="16" [padding]="0" class="mr-1"></tc-icon> {{ value }}
-        </span>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Doctor'" [columnName]="'doctor'" [enableSorting]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'Injury / Condition'" [columnName]="'injury'" [enableSorting]="true"></tc-table-col>
-  </tc-table>
-</tc-card>
