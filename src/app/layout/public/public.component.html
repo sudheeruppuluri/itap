@@ -1,9 +1,22 @@
-<div class="content-box">
-  <div class="content-header">
-    <logo [src]="'assets/img/iTAP-logo.png'" [width]="147" [height]="33"></logo>
+<div class="row">
+  <div class="col-lg-4 offset-lg-2 align-self-center f18 text-white" style="border-right: 1px solid #fff;">
+    <img src="assets/img/iTAP-white.png" class="img-responsive">
+    <p class="text-center">Terminal Automation and Planning Solution</p>
+    <div class="text-right pr-5">
+      <p>Providing the best Terminal Operation Systems (TOS)</p>
+      <p>For multi cargo terminals since 1999</p>
+    </div>
   </div>
-
-  <div class="content-body">
-    <router-outlet></router-outlet>
+  <div class="col-lg-6">
+    <div class="content-box">
+      <div class="content-header pt-0 d-none">
+        <logo [src]="'assets/img/iTAP-logo.png'" [width]="147" [height]="33"></logo>
+      </div>
+    
+      <div class="content-body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    
   </div>
 </div>

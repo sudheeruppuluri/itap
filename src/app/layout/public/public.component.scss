@@ -1,7 +1,7 @@
 @import '~src/assets/sass/variables';
 
 :host {
-  background: url('~src/assets/content/login-page.jpg') 50% 50% no-repeat;
+  background: url('~src/assets/img/Bg.jpg') 50% 50% no-repeat;
   background-size: cover;
   display: block;
   height: 100%;
@@ -31,7 +31,9 @@
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    min-height: 100%;
+    max-height: 100%;
+    margin: 25vh 5vw;
+    border-radius: 10px;
 
     .content-header {
       padding-top: $module-rem * 2;
@@ -40,7 +42,8 @@
       align-items: center;
       display: flex;
       flex-grow: 1;
-      padding: $module-rem ($module-rem * 4);
+      // padding: $module-rem ($module-rem * 4);
+      padding: 40px 30px;
       width: 100%;
 
       ::ng-deep {
@@ -55,4 +58,8 @@
       }
     }
   }
+}
+
+.f18{
+  font-size: 18px;
 }

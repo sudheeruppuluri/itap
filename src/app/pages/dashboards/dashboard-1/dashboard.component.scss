@@ -69,3 +69,195 @@
     }
   }
 }
+
+.h-100{
+  height: 100%;
+}
+
+.bg-white{
+  background-color: #fff !important;
+  background: #fff !important;
+}
+
+.announcement-wrap{
+  background-color: #FFDCC9;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+
+  &-body{
+
+    &-block{
+      padding-left: 10px;
+      border-left: 3px solid #F5C0A1;
+      h5{
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.performance-wrap{
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+
+  &-body{
+
+    &-block{
+      padding-left: 10px;
+      border-left: 3px solid #F5C0A1;
+      h5{
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.border{
+  &-white{
+    border-bottom: 1px solid #fff;
+  }
+
+  &-blue{
+    &-light{
+      border-bottom: 1px solid #DBEBF2;
+    }
+  }
+}
+
+
+/* Pie Chart */
+.progress-pie-chart {
+  width:200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #D3DFEF;
+  position: relative;
+  
+  display: inline-block;
+}
+.progress-pie-chart.gt-50 {
+  background-color: #0371D5;
+}
+
+.ppc-progress {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  clip: rect(0, 200px, 200px, 100px);
+}
+.ppc-progress .ppc-progress-fill {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  clip: rect(0, 100px, 200px, 0);
+  background: #0371D5;
+  transform: rotate(60deg);
+}
+.gt-50 .ppc-progress {
+  clip: rect(0, 100px, 200px, 0);
+}
+.gt-50 .ppc-progress .ppc-progress-fill {
+  clip: rect(0, 200px, 200px, 100px);
+  background: #D3DFEF;
+}
+
+.ppc-percents {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 173.91304px/2);
+  top: calc(50% - 173.91304px/2);
+  width: 173.91304px;
+  height: 173.91304px;
+  background: #fff;
+  text-align: center;
+  display: table;
+}
+.ppc-percents span {
+  display: block;
+  font-size: 2.6em;
+  font-weight: bold;
+  color: #0371D5;
+}
+
+.pcc-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.progress-pie-chart {
+  margin: 10px;
+}
+
+
+// Side Tabs
+
+// Variables.
+$body-bg: #272635;
+$link-bg: #11111A;
+$link-color: rgba(255, 255, 255, .6);
+$active-link-color: $body-bg;
+$white: #fff;
+$text-color: #2C2C2C;
+
+
+.overview-wrap{
+  // Tab styling.
+  .tabs {
+    max-width: 60rem;
+    display: flex;
+    padding: 25px;
+    
+    > ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        display: block;
+        text-align: center;
+        
+        a {
+          display: block;
+          text-decoration: none;
+          background: #fff;
+          padding: 1rem 1.5rem;
+          color: #000;
+          transition: all .2s ease-in-out;
+          border-radius: 30px 0 0 30px;
+          
+          &.active {
+            background: #FEF8D3;
+            color: #000;
+            border-radius: 30px 0 0 30px;
+          }
+          
+          &:hover:not(.active) {
+            color: #000;
+          }
+        }
+      }
+    }
+    
+    section {
+      background: $white;
+      padding: 1.5rem 2.5rem;
+      display: none;
+      
+      &.active {
+        display: block;
+        background: #FEF8D3;
+      }
+    }
+  }
+}
