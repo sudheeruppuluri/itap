@@ -9,6 +9,6 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to medic-app-v7!');
+    expect(page.getTitleText()).toEqual('Welcome to itap-v7!');
   });
 });
